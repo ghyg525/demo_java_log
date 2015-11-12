@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.java.util</groupId>
-  <artifactId>t</artifactId>
+  <groupId>org.yangjie</groupId>
+  <artifactId>log</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>t</name>
+  <name>java_log</name>
   <url>http://maven.apache.org</url>
 
   <properties>
