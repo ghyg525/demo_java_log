@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+	<!-- 指定日志打印格式 -->
+	<property name="log_pattern" value="%date [%thread] %p - %msg%n %caller{3}"/>
+	<!-- <property name="log_pattern" value="%date [%thread] %p %logger:%line - %msg%n"/> -->
+	<!-- %date [%thread] (%p) %l - %msg%n -->
+
+
+	<!-- 控制台输出 -->
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder><pattern>${log_pattern}</pattern></encoder>
+	</appender>
+
+	<!-- 文件输出 -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/logs/%d{yyyy-MM-dd}.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+		<encoder><pattern>${log_pattern}</pattern></encoder>
+	</appender>
+
+	<!-- 数据库输出
+	<appender name="db" class="ch.qos.logback.classic.db.DBAppender">
+		<connectionSource
+			class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+			<driverClass>com.mysql.jdbc.Driver</driverClass>
+			<url>jdbc:mysql://host_name:3306/datebase_name</url>
+			<user>username</user>
+			<password>password</password>
+		</connectionSource>
+	</appender> -->
+
+	<!-- 邮件输出
+	<appender name="email" class="ch.qos.logback.classic.net.SMTPAppender">
+		<SMTPHost>smtp.qq.com</SMTPHost>
+		<SMTPPort>465</SMTPPort>
+		<SSL>true</SSL>
+		<Username>username</Username>
+		<Password>password</Password>
+		<To>to</To>
+		<From>from</From>
+		<Subject>主题: %logger{20} - %m</Subject>
+		<encoder>
+			<layout classlayoutclass="ch.qos.logback.classic.html.HTMLLayout">
+				<Pattern>%date %-5level %logger - %message%n</Pattern>
+			</layout>
+		</encoder>
+	</appender> -->
+
+	<!-- 级别包括：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF -->
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="file" />
+	</root>
+
+
+	<!-- 设置某一个包或者具体的某一个类的日志打印级别, 可指定<appender> -->
+	<logger name="logback"><level value="DEBUG" /></logger>
+
+
+</configuration>

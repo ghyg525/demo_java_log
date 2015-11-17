@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="error">
+
+	<appenders>
+	
+		<console name="console" target="SYSTEM_OUT">
+			<patternlayout pattern="%date [%thread] (%p) %l - %msg%n" />
+			<!-- <patternlayout pattern="%date [%t] %p %-5l - %msg%n" /> -->
+		</console>
+		
+		<file name="file" fileName="/logs/log4j2.log">
+			<PatternLayout pattern="%date [%thread] (%p) %l - %msg%n" />
+		</file>
+		
+	</appenders>
+
+
+	<loggers>
+
+		<root level="error">
+			<appender-ref ref="console"/>
+			<appender-ref ref="file"/>
+		</root>
+
+		<!-- 指定包或类名 -->
+		<logger name="log4j2" level="debug"/>
+
+	</loggers>
+</configuration>
