@@ -9,7 +9,7 @@ public class Test {
 	
 	    public static void main(String[] args) {
 	        logger.trace("trace");
-	        logger.debug("debug");
+	        logger.debug("debug {} debug", "log4j2");
 	        logger.info("info");
 	        logger.warn("warn");
 	        logger.error("error");
